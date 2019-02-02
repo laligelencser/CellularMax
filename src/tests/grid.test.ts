@@ -14,6 +14,14 @@ test('create grid', () => {
 
 test('iterate grid', () => {
     let valueSum = 0;
-    grid.iterate((cell: Cell) => valueSum += cell.value);
+    let lastIndexX = 0;
+    let lastIndexY = 0;
+    grid.iterate((cell: Cell, rowIndex: number, columnIndex: number) => {
+        valueSum += cell.value
+        lastIndexX = columnIndex;
+        lastIndexY = rowIndex;
+    });
     expect(valueSum).toBe(0);
+    expect(lastIndexX).toBe(1);
+    expect(lastIndexY).toBe(2);
 });
