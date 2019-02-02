@@ -1,4 +1,4 @@
-import { Cell } from './cell';
+import { Grid } from './grid';
 
 function init(rootElement: HTMLElement) {
     let canvas: HTMLElement = createCanvas(100, 100);
@@ -12,7 +12,8 @@ export const createCanvas = (width: number, height: number): HTMLElement => {
 	return canvas;
 }
 
-let c: Cell= new Cell();
+// const grid = new Grid();
+// grid.cells = grid.createGrid(3, 2);
 let element: HTMLElement = document.createElement('div');
 init(element);
 document.body.appendChild(element);
