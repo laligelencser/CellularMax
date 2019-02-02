@@ -1,0 +1,24 @@
+{
+  "name": "CellularMax",
+  "version": "1.0.0",
+  "description": "Investigation of cellular automatas",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/laligelencser/CellularMax.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/laligelencser/CellularMax/issues"
+  },
+  "homepage": "https://github.com/laligelencser/CellularMax#readme",
+  "devDependencies": {
+    "webpack": "^4.29.0",
+    "webpack-cli": "^3.2.1"
+  }
+}
