@@ -1,5 +1,5 @@
-import { Grid } from "../grid";
-import { Cell } from "../cell";
+import { Grid } from "../model/grid";
+import { Cell } from "../model/cell";
 
 const grid = new Grid();
 

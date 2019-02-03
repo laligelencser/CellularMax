@@ -1,5 +1,5 @@
-import { Grid } from "../grid";
-import { Cell } from "../cell";
+import { Grid } from "../model/grid";
+import { Cell } from "../model/cell";
 
 export const render = (ctx: CanvasRenderingContext2D, grid: Grid, settings: any = {}) => {
     grid.iterate((cell: Cell, rowIndex: number, columnIndex: number) => {
