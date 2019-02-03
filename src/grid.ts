@@ -16,8 +16,10 @@ export class Grid {
     }
     
     iterate = (iterator: Function) => {
-        for(let i = 0; i < this.cells.length; i++) {
-            for(let j = 0; j < this.cells[i].length; j++) {
+        const rowLength = this.cells.length;
+        for(let i = 0; i < rowLength; i++) {
+            const columnLength = this.cells[i].length;
+            for(let j = 0; j < columnLength; j++) {
                 iterator(this.cells[i][j], i, j);
             }   
         }
