@@ -17,7 +17,7 @@ test('iterate grid', () => {
     let lastIndexX = 0;
     let lastIndexY = 0;
     grid.iterate((cell: Cell, rowIndex: number, columnIndex: number) => {
-        valueSum += cell.value
+        valueSum += cell.valuesInTime.reduce((sum: number, value: number) => sum + value);
         lastIndexX = columnIndex;
         lastIndexY = rowIndex;
     });
