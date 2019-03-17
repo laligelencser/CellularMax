@@ -1,5 +1,11 @@
 import { Cell } from "./model/cell";
+import { Grid } from "./model/grid";
+import { applyRuleGameOfLife } from "./ruleFunctions";
 
-export const setNextState = (cell: Cell, applyRule: Function) => {
-    applyRule(cell);
+let currentRule = applyRuleGameOfLife;
+
+export const setNextState = (grid: Grid) => {
+    grid.iterate((cell: Cell) => {
+        currentRule(cell);
+    })
 }
