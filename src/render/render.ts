@@ -8,9 +8,9 @@ export const render = () => {
         const x = appState.rectWidth * columnIndex;
         const y = appState.rectHeight * rowIndex;
         if (cell.currentValue() === 1) {
-            ctx.fillRect(x, y, appState.rectWidth - 1, appState.rectHeight - 1);
+            ctx.fillRect(x, y, appState.rectWidth, appState.rectHeight);
         } else {
-            ctx.strokeRect(x, y, appState.rectWidth - 1, appState.rectHeight - 1);
+            ctx.strokeRect(x, y, appState.rectWidth, appState.rectHeight);
         }
     });
 }
