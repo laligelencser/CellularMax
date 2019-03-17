@@ -11,7 +11,7 @@ export const init = (rootElement: HTMLElement) => {
 	appState.grid.cells = appState.grid.createGrid(appState.numberOfHorizontalCells, appState.numberOfVerticalalCells);
 
 	appState.canvas = createCanvas(rootElement.clientWidth, rootElement.clientHeight);
-	registerCanvasClickEvent();
+	appState.canvas.onclick = canvasClick;
 	rootElement.appendChild(appState.canvas);
 	setRectConnection(appState.grid, 1);
 	render();
@@ -45,13 +45,10 @@ export const update = () => {
 	}
 }
 
-function registerCanvasClickEvent() {
-	function canvasClick(e: MouseEvent){
-		let xOffset = appState.canvas.getBoundingClientRect().left;
-		let rowIndex = Math.floor(e.clientY / appState.rectHeight);
-		let columnIndex = Math.floor((e.clientX - xOffset) / appState.rectWidth);
-		appState.grid.flipCellValue(rowIndex, columnIndex);
-		render();
-	}
-	appState.canvas.onclick = canvasClick;
+function canvasClick(e: MouseEvent){
+    let xOffset = appState.canvas.getBoundingClientRect().left;
+    let rowIndex = Math.floor(e.clientY / appState.rectHeight);
+    let columnIndex = Math.floor((e.clientX - xOffset) / appState.rectWidth);
+    appState.grid.flipCellValue(rowIndex, columnIndex);
+    render();
 }
