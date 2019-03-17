@@ -4,6 +4,7 @@ import { AppState } from "../index";
 
 export const render = (appState: AppState) => {
     const ctx = appState.canvas.getContext('2d');
+    ctx.clearRect(0, 0, appState.canvas.width, appState.canvas.width);
     appState.grid.iterate((cell: Cell, rowIndex: number, columnIndex: number) => {
         const x = appState.rectWidth * columnIndex;
         const y = appState.rectHeight * rowIndex;
