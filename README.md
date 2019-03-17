@@ -1,2 +1,2 @@
 # CellularMax
-Investigation of cellular automatas
+Cellular automata rules simulator written in typescript
