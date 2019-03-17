@@ -1,4 +1,4 @@
-import { createCanvas } from '../index';
+import { createCanvas } from "../mainLoop";
 
 test('create canvas', () => {
     let canvas = createCanvas(0, 0);

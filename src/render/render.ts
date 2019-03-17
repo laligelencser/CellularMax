@@ -1,8 +1,7 @@
-import { Grid } from "../model/grid";
 import { Cell } from "../model/cell";
-import { AppState } from "../index";
+import { appState } from "../appState";
 
-export const render = (appState: AppState) => {
+export const render = () => {
     const ctx = appState.canvas.getContext('2d');
     ctx.clearRect(0, 0, appState.canvas.width, appState.canvas.width);
     appState.grid.iterate((cell: Cell, rowIndex: number, columnIndex: number) => {
