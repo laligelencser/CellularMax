@@ -5,12 +5,10 @@ import { render } from "./render/render";
 import { setNextState } from "./stateManager";
 
 export const init = (rootElement: HTMLElement) => {
-	const gridWidth = 30;
-	const gridHeight = 30;
-	appState.rectWidth = Math.floor(rootElement.clientWidth / gridWidth);
-	appState.rectHeight = Math.floor(rootElement.clientHeight / gridHeight);
+	appState.rectWidth = Math.floor(rootElement.clientWidth / appState.numberOfHorizontalCells);
+	appState.rectHeight = Math.floor(rootElement.clientHeight / appState.numberOfVerticalalCells);
 	appState.grid = new Grid();
-	appState.grid.cells = appState.grid.createGrid(gridWidth, gridHeight);
+	appState.grid.cells = appState.grid.createGrid(appState.numberOfHorizontalCells, appState.numberOfVerticalalCells);
 
 	appState.canvas = createCanvas(rootElement.clientWidth, rootElement.clientHeight);
 	registerCanvasClickEvent();
@@ -43,7 +41,7 @@ export const update = () => {
 	render();
 	console.log('updated', 'paused: ' + appState.isPaused);
 	if (!appState.isPaused) {
-		setTimeout(update, 1000);
+		setTimeout(update, appState.callbackTime);
 	}
 }
 
