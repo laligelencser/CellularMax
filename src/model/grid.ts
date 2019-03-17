@@ -28,4 +28,8 @@ export class Grid {
     activateCell = (i: number, j: number) => {
         this.cells[i][j].activate();
     }
+
+    flipCellValue = (i: number, j: number) => {
+        this.cells[i][j].flipValue();
+    }
 }

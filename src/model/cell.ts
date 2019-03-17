@@ -3,6 +3,7 @@ export class Cell {
     valuesInTime: number[] = [0];
     numberOfValues: number = 2;
     activateValue: number = 1;
+    defaultValue: number = 0;
 
     sumConnections = (): number => {
         let sum = 0;
@@ -13,7 +14,10 @@ export class Cell {
     }
 
     currentValue = (): number => {
-        return this.valuesInTime[this.valuesInTime.length - 1];
+        if (this.valuesInTime.length) {
+            return this.valuesInTime[this.valuesInTime.length - 1];
+        }
+        return null;
     }
 
     addNewValue = (value: number): void => {
@@ -23,7 +27,19 @@ export class Cell {
         this.valuesInTime.push(value);
     }
 
+    changeValue = (value: number): void => {
+        this.valuesInTime[this.valuesInTime.length - 1] = value;
+    }
+
     activate = (): void => {
-        this.valuesInTime[this.valuesInTime.length] = this.activateValue;
+        this.changeValue(this.activateValue);
+    }
+
+    flipValue = (): void => {
+        if (this.currentValue() === this.defaultValue) {
+            this.changeValue(this.activateValue);
+        } else {
+            this.changeValue(this.defaultValue);
+        }
     }
 }
