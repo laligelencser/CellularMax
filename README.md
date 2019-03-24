@@ -17,7 +17,7 @@ Rules implemented:
 
 5. click on grid to add or remove active cells
 
-6. press Space to start the simulation or press N to advance one cycle
+6. press Space to start/stop the simulation or press N to advance one cycle
 
 ### Tests
 
