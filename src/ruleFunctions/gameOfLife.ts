@@ -1,4 +1,4 @@
-import { Cell } from "./model/cell";
+import { Cell } from "../model/cell";
 
 export const applyRuleGameOfLife = (cell: Cell) => {
     const valueSum = cell.sumConnections();
