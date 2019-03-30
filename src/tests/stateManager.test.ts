@@ -9,7 +9,7 @@ test('setting next state with zero values', () => {
     setRectConnection(grid, 1);
     setNextState(grid);
     let sumValue = 0;
-    grid.iterate((cell: Cell) => sumValue += cell.currentValue())
+    grid.iterate((cell: Cell) => sumValue += cell.currentValue)
     expect(sumValue).toBe(0);
 });
 
@@ -22,5 +22,5 @@ test('setting next state with the value of one', () => {
     grid.cells[1][1].addNewValue(1);
     grid.cells[1][0].addNewValue(1);
     setNextState(grid);
-    expect(grid.cells[0][0].currentValue()).toBe(1);
+    expect(grid.cells[0][0].currentValue).toBe(1);
 });

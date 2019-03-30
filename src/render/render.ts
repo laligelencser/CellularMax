@@ -7,7 +7,7 @@ export const render = () => {
     appState.grid.iterate((cell: Cell, rowIndex: number, columnIndex: number) => {
         const x = appState.rectWidth * columnIndex;
         const y = appState.rectHeight * rowIndex;
-        if (cell.currentValue() === 1) {
+        if (cell.currentValue === 1) {
             ctx.fillRect(x, y, appState.rectWidth, appState.rectHeight);
         } else {
             ctx.strokeRect(x, y, appState.rectWidth, appState.rectHeight);

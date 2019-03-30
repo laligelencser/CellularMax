@@ -7,5 +7,8 @@ let currentRule = applyRuleGameOfLife;
 export const setNextState = (grid: Grid) => {
     grid.iterate((cell: Cell) => {
         currentRule(cell);
+    });
+    grid.iterate((cell: Cell) => {
+        cell.setCurrentValue();
     })
 }

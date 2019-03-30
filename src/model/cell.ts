@@ -4,20 +4,21 @@ export class Cell {
     numberOfValues: number = 2;
     activateValue: number = 1;
     defaultValue: number = 0;
+    currentValue: number = 0;
 
     sumConnections = (): number => {
         let sum = 0;
         for(let cell of this.connections) {
-            sum += cell.currentValue();
+            sum += cell.currentValue;
         }
         return sum;
     }
 
-    currentValue = (): number => {
+    setCurrentValue = (): void => {
         if (this.valuesInTime.length) {
-            return this.valuesInTime[this.valuesInTime.length - 1];
+            this.currentValue = this.valuesInTime[this.valuesInTime.length - 1];
         }
-        return null;
+        this.currentValue = 0;
     }
 
     addNewValue = (value: number): void => {
@@ -29,6 +30,7 @@ export class Cell {
 
     changeValue = (value: number): void => {
         this.valuesInTime[this.valuesInTime.length - 1] = value;
+        this.currentValue = value;
     }
 
     activate = (): void => {
@@ -36,7 +38,7 @@ export class Cell {
     }
 
     flipValue = (): void => {
-        if (this.currentValue() === this.defaultValue) {
+        if (this.currentValue === this.defaultValue) {
             this.changeValue(this.activateValue);
         } else {
             this.changeValue(this.defaultValue);
