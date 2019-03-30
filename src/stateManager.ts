@@ -10,5 +10,5 @@ export const setNextState = (grid: Grid) => {
     });
     grid.iterate((cell: Cell) => {
         cell.setCurrentValue();
-    })
+    });
 }

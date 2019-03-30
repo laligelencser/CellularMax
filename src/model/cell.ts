@@ -18,7 +18,9 @@ export class Cell {
         if (this.valuesInTime.length) {
             this.currentValue = this.valuesInTime[this.valuesInTime.length - 1];
         }
-        this.currentValue = 0;
+        else {
+            this.currentValue = 0;
+        }
     }
 
     addNewValue = (value: number): void => {

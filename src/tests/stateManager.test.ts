@@ -18,9 +18,13 @@ test('setting next state with the value of one', () => {
     grid.cells = grid.createGrid(2, 2);
     setRectConnection(grid, 1);
     grid.cells[0][0].addNewValue(0);
+    grid.cells[0][0].setCurrentValue();
     grid.cells[0][1].addNewValue(1);
+    grid.cells[0][1].setCurrentValue();
     grid.cells[1][1].addNewValue(1);
+    grid.cells[1][1].setCurrentValue();
     grid.cells[1][0].addNewValue(1);
+    grid.cells[1][0].setCurrentValue();
     setNextState(grid);
     expect(grid.cells[0][0].currentValue).toBe(1);
 });
