@@ -1,6 +1,6 @@
 import { Cell } from "./model/cell";
 import { Grid } from "./model/grid";
-import { applyRuleGameOfLife } from "./ruleFunctions";
+import { applyRuleGameOfLife } from "./ruleFunctions/gameOfLife";
 
 let currentRule = applyRuleGameOfLife;
 
