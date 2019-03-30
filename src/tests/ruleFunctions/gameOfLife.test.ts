@@ -1,7 +1,9 @@
 import { Cell } from "../../model/cell";
 import { applyRuleGameOfLife } from "../../ruleFunctions/gameOfLife";
+import { Grid } from "../../model/grid";
+import { setRectConnection } from "../../connectionManager";
 
-test('rule: game of life new cell born from 3 active connection', () => {
+test('new cell born from 3 active connection', () => {
     let cell = new Cell();
     cell.addNewValue(0);
     for(let i = 0; i < 3; i++) {
@@ -12,10 +14,10 @@ test('rule: game of life new cell born from 3 active connection', () => {
     
     applyRuleGameOfLife(cell);
 
-    expect(cell.currentValue()).toBe(1);
+    expect(cell.currentValue).toBe(1);
 });
 
-test('rule: game of life new cell born from 3 active and 5 dead connection', () => {
+test('new cell born from 3 active and 5 dead connection', () => {
     let cell = new Cell();
     cell.addNewValue(0);
     for(let i = 0; i < 8; i++) {
@@ -30,10 +32,23 @@ test('rule: game of life new cell born from 3 active and 5 dead connection', () 
 
     applyRuleGameOfLife(cell);
 
-    expect(cell.currentValue()).toBe(1);
+    expect(cell.currentValue).toBe(1);
 });
 
-test('rule: game of life cell die', () => {
+test('new cell born with grid', () => {
+    const grid = new Grid();
+    grid.cells = grid.createGrid(3, 3);
+    setRectConnection(grid, 1);
+    grid.cells[0][0].addNewValue(1);
+    grid.cells[0][1].addNewValue(1);
+    grid.cells[0][2].addNewValue(1);
+    grid.iterate((cell: Cell) => {
+        applyRuleGameOfLife(cell);
+    })
+    expect(grid.cells[1][1].currentValue).toBe(1);
+});
+
+test('cell die', () => {
     let cell = new Cell();
     cell.addNewValue(1);
     for(let i = 0; i < 4; i++) {
@@ -43,10 +58,10 @@ test('rule: game of life cell die', () => {
     }
     applyRuleGameOfLife(cell);
 
-    expect(cell.currentValue()).toBe(0);
+    expect(cell.currentValue).toBe(0);
 });
 
-test('rule: game of life cell survive with 3 active connection', () => {
+test('cell survive with 3 active connection', () => {
     let cell = new Cell();
     cell.addNewValue(1);
     for(let i = 0; i < 3; i++) {
@@ -56,10 +71,10 @@ test('rule: game of life cell survive with 3 active connection', () => {
     }
 
     applyRuleGameOfLife(cell);
-    expect(cell.currentValue()).toBe(1);
+    expect(cell.currentValue).toBe(1);
 });
 
-test('rule: game of life cell survive with 2 active connection', () => {
+test('cell survive with 2 active connection', () => {
     let cell = new Cell();
     cell.addNewValue(1);
     for(let i = 0; i < 2; i++) {
@@ -69,5 +84,5 @@ test('rule: game of life cell survive with 2 active connection', () => {
     }
 
     applyRuleGameOfLife(cell);
-    expect(cell.currentValue()).toBe(1);
+    expect(cell.currentValue).toBe(1);
 });
